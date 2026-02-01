@@ -412,8 +412,6 @@ Index<String> LocalTransport::read_folder(const char * uri, String & error)
     return entries;
 }
 
-
-
 #ifdef _WIN32
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -445,13 +443,13 @@ bool LocalTransport::get_file_timestamps(const char * filename, int64_t * mtime,
 #include <sys/syscall.h>
 #include <unistd.h>
 
-// Use statx on Linux to get creation time
 bool LocalTransport::get_file_timestamps(const char * filename, int64_t * mtime, int64_t * birthtime)
 {
     StringBuf path = uri_to_filename(filename);
     if (!path)
         return false;
 
+    // Use statx on Linux to get creation time
     struct statx stx;
     if (syscall(SYS_statx, AT_FDCWD, (const char *)path, 0,
                 STATX_MTIME | STATX_BTIME, &stx) == 0)

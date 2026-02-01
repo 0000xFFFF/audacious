@@ -111,7 +111,8 @@ static QString tuple_field_to_str(const Tuple & tuple, Tuple::Field field)
     case Tuple::DateTime:
     {
         int64_t t = tuple.get_int64(field);
-        if (t > 0) {
+        if (t > 0)
+        {
             struct tm tm_val;
             char buf[128];
             localtime_r(&t, &tm_val);

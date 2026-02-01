@@ -167,7 +167,7 @@ public:
     /* Returns the string value of a field if set, otherwise null. */
     ::String get_str(Field field) const;
 
-    /* Returns the datetime value of a field if set, otherwise -1. */
+    /* Returns the int64 value of a field if set, otherwise -1. */
     int64_t get_int64(Field field) const;
 
     /* Sets a field to the integer value <x>. */
@@ -178,7 +178,7 @@ public:
      * Equivalent to unset() if <str> is null. */
     void set_str(Field field, const char * str);
 
-    /* Sets a field to the datetime value <x>. */
+    /* Sets a field to the int64 value <x>. */
     void set_int64(Field field, int64_t x);
 
     /* Clears any value that a field is currently set to. */

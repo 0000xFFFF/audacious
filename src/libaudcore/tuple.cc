@@ -20,9 +20,9 @@
 
 #include <assert.h>
 #include <math.h>
-#include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include <glib.h> /* for g_utf8_validate */
 
@@ -522,7 +522,6 @@ EXPORT void Tuple::set_int64(Field field, int64_t x)
     data->set_int64(field, x);
 }
 
-
 EXPORT void Tuple::set_str(Field field, const char * str)
 {
     assert(is_valid_field(field) && field_info[field].type == String);
@@ -544,7 +543,6 @@ EXPORT void Tuple::set_str(Field field, const char * str)
                                   : _("(character encoding error)"));
     }
 }
-
 
 EXPORT void Tuple::unset(Field field)
 {
